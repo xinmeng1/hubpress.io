@@ -4,7 +4,12 @@
     "repositoryName": "note",
     "branch": "gh-pages"
   },
+  "site": {
+    "title": "Xin's Note",
+    "description": "development note"
+  },
+  "socialnetwork": {},
   "theme": {
-    "name": "Casper"
+    "name": "casper"
   }
 }
