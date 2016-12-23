@@ -1,0 +1,10 @@
+= Demo
+:hp-tags: HubPress, Blog, Open Source,
+
+## Hello
+
+This is the first test blog by using Hubpress!
+
+## Thanks
+
+Thanks
