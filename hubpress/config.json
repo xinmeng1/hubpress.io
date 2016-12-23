@@ -11,7 +11,11 @@
     "googleAnalytics": "UA-89346284-1",
     "disqus": "mengxin"
   },
-  "socialnetwork": {},
+  "socialnetwork": {
+    "email": "mengxin.city@gmail.com",
+    "twitter": "xinmeng_1",
+    "github": "xinmeng1"
+  },
   "theme": {
     "name": "uno-zen"
   }
