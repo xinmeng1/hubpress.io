@@ -1,0 +1,101 @@
+= 如何在对象数组中进行查找部分匹配对象
+:hp-alt-title: How to partially match in object array
+:hp-tags: Chinese, Javascript
+
+
+# 问题描述
+
+如何在一个对象数组中查找部分字段匹配的对象, 并返回.举个例子.
+
+```typescript
+//定义一个对象car
+class Car {
+	name?: string;
+    brand?: string;
+    serial?: string;
+}
+
+//我们有一个已知的car的数组
+var cars: Car[]
+
+//现在我们有一辆 car, 我们需要查找, 该car的name是否已经在 该数组中存在? 并找出该数组. (如果存在返回第一个)
+//?? 
+```
+
+
+# 方案
+
+## 解决方法
+
+使用`Array.prototype.find()`, [文档参考](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+
+```typescript
+var targetCar: Car;
+var matchedCar = cars.find((x)=>x.name==targetCar.name);
+```
+
+## 扩展内容
+
+如果我们是需要比较一个数组呢? ~~这时候我们需要为比较函数传递一个新的参数,来标示数组下标~~. 需要使用 thisArg 参数.
+
+
+
+
+
+``` typescript
+//var targetCars: Car[] = [];
+
+//for(var i=0, i< targetCars.length; i++){
+//	var matchedCar = cars.find((x,i)=>x.name==targetCar[i].name);
+}
+
+var targetCars: Car[] = [];
+
+var obj = { i:0 }
+obj.i = i
+
+for(var i=0, i< targetCars.length; i++){
+	var matchedCar = cars.find(
+	(x)=>x.name==targetCar[this.i].name, // 这里的this 就是 obj
+	obj);
+}
+
+
+```
+
+## 注意
+
+注意该方法是在 ECMAScript 2015 (6th Edition, ECMA-262) 以后的版本才有, 所以需要注意你的浏览器, 如果浏览器太旧, 需要自己加入Polifill来支持该方法.
+
+```javascript
+if (!Array.prototype.find) {
+  Array.prototype.find = function(predicate) {
+    'use strict';
+    if (this == null) {
+      throw new TypeError('Array.prototype.find called on null or undefined');
+    }
+    if (typeof predicate !== 'function') {
+      throw new TypeError('predicate must be a function');
+    }
+    var list = Object(this);
+    var length = list.length >>> 0;
+    var thisArg = arguments[1];
+    var value;
+
+    for (var i = 0; i < length; i++) {
+      value = list[i];
+      if (predicate.call(thisArg, value, i, list)) {
+        return value;
+      }
+    }
+    return undefined;
+  };
+}
+```
+
+# 参考
+
+
+  [1]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
+
+
