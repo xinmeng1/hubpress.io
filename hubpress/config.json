@@ -6,7 +6,10 @@
   },
   "site": {
     "title": "Xin's Note",
-    "description": "development note"
+    "description": "development note",
+    "cover": "",
+    "googleAnalytics": "UA-89346284-1",
+    "disqus": "mengxin"
   },
   "socialnetwork": {},
   "theme": {
