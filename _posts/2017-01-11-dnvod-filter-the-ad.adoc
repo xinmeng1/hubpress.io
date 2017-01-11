@@ -1,0 +1,7 @@
+= dnvod filter the ad
+
+use the adblock customed filter to filter ads of dnvod
+
+`www.dnvod.eu/upload/userFriend ^`
+
+add this filter to Customize AdBlock filter list, all the ads of movie load will be filter out.
